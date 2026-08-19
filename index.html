@@ -61,6 +61,54 @@ img{max-width:100%;display:block}
 .btn-secondary{background:transparent;border:1px solid var(--text);color:var(--text);padding:15px 38px;border-radius:50px;cursor:pointer;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;transition:all .3s;font-weight:500}
 .btn-secondary:hover{background:var(--text);color:#fff;transform:translateY(-3px)}
 .btn-ripple{position:relative;overflow:hidden}
+
+/* Routine Builder */
+.routine-section{padding:80px 40px;background:linear-gradient(180deg,#fffaf9 0%,#fdf3f6 100%);position:relative;z-index:1}
+.routine-section .section-header{text-align:center;margin-bottom:50px}
+.routine-section .section-header h2{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:500}
+.routine-section .section-header p{color:#a39b98;font-size:.9rem;margin-top:10px;font-weight:300}
+.routine-section .section-divider{width:60px;height:2px;background:var(--accent);margin:22px auto 0}
+.routine-builder{max-width:1100px;margin:0 auto}
+.routine-step-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;margin-bottom:20px;text-align:center;color:var(--text)}
+.routine-step-title span{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.85rem;margin-right:10px;font-family:'Poppins',sans-serif}
+.goal-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:40px}
+.goal-card{background:var(--white);border:2px solid transparent;border-radius:var(--radius-lg);padding:24px 16px;text-align:center;cursor:pointer;transition:all .3s;box-shadow:0 4px 15px rgba(0,0,0,.05)}
+.goal-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.1)}
+.goal-card.selected{border-color:var(--accent);background:linear-gradient(135deg,#fdf3f6,#fff)}
+.goal-card-title{font-size:1rem;font-weight:600;margin-bottom:6px;letter-spacing:.5px}
+.goal-card-desc{font-size:.7rem;color:#a39b98;line-height:1.5}
+.scent-selector{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:40px}
+.scent-btn{background:var(--white);border:2px solid #f0e5e8;padding:12px 24px;border-radius:50px;cursor:pointer;font-size:.75rem;font-weight:500;transition:all .3s;display:flex;align-items:center;gap:8px}
+.scent-btn:hover{border-color:var(--accent)}
+.scent-btn.selected{background:var(--accent);color:#fff;border-color:var(--accent)}
+.scent-btn .scent-dot{width:12px;height:12px;border-radius:50%}
+.scent-btn[data-scent="Raspberry"] .scent-dot{background:#e84a5f}
+.scent-btn[data-scent="Strawberry"] .scent-dot{background:#ff6b6b}
+.scent-btn[data-scent="Coconut Vanilla"] .scent-dot{background:#f5e6ca}
+.scent-btn[data-scent="Marshmallow"] .scent-dot{background:#ffd1dc}
+.routine-result{display:none;background:var(--white);border-radius:var(--radius-lg);padding:30px;box-shadow:0 10px 40px rgba(0,0,0,.08)}
+.routine-result.show{display:block;animation:fadeIn .5s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.routine-result-header{text-align:center;margin-bottom:30px}
+.routine-result-header h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;margin-bottom:8px}
+.routine-result-header p{font-size:.85rem;color:#a39b98}
+.routine-steps{display:flex;flex-direction:column;gap:20px;margin-bottom:30px}
+.routine-step{display:flex;align-items:center;gap:20px;padding:20px;background:#fdf8f9;border-radius:var(--radius-md);position:relative}
+.routine-step::before{content:'';position:absolute;left:35px;top:100%;width:2px;height:20px;background:linear-gradient(to bottom,var(--accent),transparent)}
+.routine-step:last-child::before{display:none}
+.routine-step-num{width:50px;height:50px;background:linear-gradient(135deg,var(--accent),#e8a0b3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:1.1rem;flex-shrink:0}
+.routine-step-product{display:flex;align-items:center;gap:16px;flex:1}
+.routine-step-product img{width:70px;height:70px;border-radius:12px;object-fit:cover}
+.routine-step-info h4{font-size:.95rem;font-weight:500;margin-bottom:4px}
+.routine-step-info p{font-size:.75rem;color:#a39b98;margin-bottom:6px}
+.routine-step-info .price{color:var(--accent);font-weight:600;font-size:.9rem}
+.routine-total{display:flex;justify-content:space-between;align-items:center;padding:20px;background:linear-gradient(135deg,#fdf3f6,#fff);border-radius:var(--radius-md);margin-bottom:20px}
+.routine-total-label{font-size:.9rem;color:#8a8280}
+.routine-total-label span{display:block;font-size:.75rem;color:#bbb;margin-top:4px}
+.routine-total-price{font-size:1.5rem;font-weight:600;color:var(--accent)}
+.routine-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.routine-actions .btn-primary{padding:14px 32px}
+
 .products-section{padding:100px 40px 120px;max-width:1320px;margin:0 auto;position:relative;z-index:1}
 .section-header{text-align:center;margin-bottom:50px}
 .section-header h2{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:500}
@@ -160,19 +208,80 @@ footer{background:var(--white);padding:60px 40px 30px;border-top:1px solid #f0f0
 .footer-copy span{color:var(--accent)}
 .fade-up{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}
 .fade-up.visible{opacity:1;transform:translateY(0)}
-@media(max-width:1024px){.nav-links{display:none}.hamburger{display:flex}.product-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px}}
-@media(max-width:768px){.hero{padding:120px 24px 60px}.hero h1{font-size:2rem}.products-section{padding:60px 20px 80px}.product-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px}.product-info{padding:14px 14px 16px}.product-name{font-size:.95rem}.product-actions{flex-direction:column;gap:8px}.filter-search-bar{gap:8px}.filter-btn{padding:8px 16px;font-size:.68rem}.modal-content{flex-direction:column}.modal-img{width:100%;height:260px;border-radius:var(--radius-lg) var(--radius-lg) 0 0}.modal-info{padding:24px}.nav-inner{padding:0 20px}footer{padding:40px 20px 20px}.cart-sidebar{width:100%;max-width:100%}}
-@media(max-width:480px){.product-grid{grid-template-columns:repeat(2,1fr);gap:12px}.product-info{padding:10px 10px 14px}.product-name{font-size:.82rem}.qty-selector button{width:26px;height:28px}.add-to-cart-btn{font-size:.65rem;padding:8px 10px;letter-spacing:1px}.hero-buttons{flex-direction:column;align-items:center}.search-wrapper{width:100%}.search-wrapper input{width:100%}}
+@media(max-width:1024px){.nav-links{display:none}.hamburger{display:flex}.product-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px}.goal-cards{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}}
+@media(max-width:768px){.hero{padding:120px 24px 60px}.hero h1{font-size:2rem}.products-section{padding:60px 20px 80px}.routine-section{padding:60px 20px}.product-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px}.product-info{padding:14px 14px 16px}.product-name{font-size:.95rem}.product-actions{flex-direction:column;gap:8px}.filter-search-bar{gap:8px}.filter-btn{padding:8px 16px;font-size:.68rem}.modal-content{flex-direction:column}.modal-img{width:100%;height:260px;border-radius:var(--radius-lg) var(--radius-lg) 0 0}.modal-info{padding:24px}.nav-inner{padding:0 20px}footer{padding:40px 20px 20px}.cart-sidebar{width:100%;max-width:100%}.routine-step{flex-direction:column;text-align:center}.routine-step::before{display:none}.routine-step-product{flex-direction:column}.goal-cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.product-grid{grid-template-columns:repeat(2,1fr);gap:12px}.product-info{padding:10px 10px 14px}.product-name{font-size:.82rem}.qty-selector button{width:26px;height:28px}.add-to-cart-btn{font-size:.65rem;padding:8px 10px;letter-spacing:1px}.hero-buttons{flex-direction:column;align-items:center}.search-wrapper{width:100%}.search-wrapper input{width:100%}.scent-selector{flex-direction:column;align-items:stretch}.scent-btn{justify-content:center}}
 </style>
 </head>
 <body>
 <div id="scroll-progress"></div>
 <div id="cursor-glow"></div>
 <div class="floating-bubbles" id="bubbles"></div>
-<nav class="navbar" id="navbar"><div class="nav-inner"><a href="#" class="nav-brand"><img src="https://i.imgur.com/YTplA5D.jpeg" alt="THE GLOWMERA" loading="eager"><span>THE GLOWMERA</span></a><ul class="nav-links"><li><a href="#hero">Home</a></li><li><a href="#products">Shop</a></li><li><a href="#products" onclick="setFilter('Offers')">Offers</a></li><li><a href="https://www.instagram.com/theglowmera" target="_blank">Instagram</a></li></ul><div class="nav-actions"><button onclick="openSearch()" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button><button onclick="toggleCart()" aria-label="Cart" id="cart-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="cart-count" id="cart-count">0</span></button><button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button></div></div></nav>
+<nav class="navbar" id="navbar"><div class="nav-inner"><a href="#" class="nav-brand"><img src="https://i.imgur.com/YTplA5D.jpeg" alt="THE GLOWMERA" loading="eager"><span>THE GLOWMERA</span></a><ul class="nav-links"><li><a href="#hero">Home</a></li><li><a href="#routine-builder">Routine Builder</a></li><li><a href="#products">Shop</a></li><li><a href="#products" onclick="setFilter('Offers')">Offers</a></li><li><a href="https://www.instagram.com/theglowmera" target="_blank">Instagram</a></li></ul><div class="nav-actions"><button onclick="openSearch()" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button><button onclick="toggleCart()" aria-label="Cart" id="cart-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="cart-count" id="cart-count">0</span></button><button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button></div></div></nav>
 <div class="mobile-menu-overlay" id="mobile-overlay" onclick="toggleMobileMenu()"></div>
-<div class="mobile-menu" id="mobile-menu"><button class="close-menu" onclick="toggleMobileMenu()">&#10005;</button><ul><li><a href="#hero" onclick="toggleMobileMenu()">Home</a></li><li><a href="#products" onclick="toggleMobileMenu()">Shop</a></li><li><a href="#products" onclick="toggleMobileMenu();setTimeout(()=>setFilter('Offers'),400)">Offers</a></li><li><a href="https://www.instagram.com/theglowmera" target="_blank">Instagram</a></li></ul></div>
-<section class="hero" id="hero"><div class="hero-bg-shapes"><div class="hero-shape"></div><div class="hero-shape"></div><div class="hero-shape"></div><div class="hero-shape"></div></div><div class="hero-content fade-up"><img src="https://i.imgur.com/YTplA5D.jpeg" alt="THE GLOWMERA" class="hero-logo"><h1>Glow Naturally.<br><em>Feel Beautiful Every Day.</em></h1><p>Premium handcrafted skincare products made with love — nourishing your skin with the finest natural ingredients.</p><div class="hero-buttons"><button class="btn-primary btn-ripple" onclick="scrollToProducts()">Shop Now</button><button class="btn-secondary btn-ripple" onclick="scrollToProducts()">Our Collection</button></div></div></section>
+<div class="mobile-menu" id="mobile-menu"><button class="close-menu" onclick="toggleMobileMenu()">&#10005;</button><ul><li><a href="#hero" onclick="toggleMobileMenu()">Home</a></li><li><a href="#routine-builder" onclick="toggleMobileMenu()">Routine Builder</a></li><li><a href="#products" onclick="toggleMobileMenu()">Shop</a></li><li><a href="#products" onclick="toggleMobileMenu();setTimeout(()=>setFilter('Offers'),400)">Offers</a></li><li><a href="https://www.instagram.com/theglowmera" target="_blank">Instagram</a></li></ul></div>
+<section class="hero" id="hero"><div class="hero-bg-shapes"><div class="hero-shape"></div><div class="hero-shape"></div><div class="hero-shape"></div><div class="hero-shape"></div></div><div class="hero-content fade-up"><img src="https://i.imgur.com/YTplA5D.jpeg" alt="THE GLOWMERA" class="hero-logo"><h1>Glow Naturally.<br><em>Feel Beautiful Every Day.</em></h1><p>Premium handcrafted skincare products made with love — nourishing your skin with the finest natural ingredients.</p><div class="hero-buttons"><button class="btn-primary btn-ripple" onclick="scrollToRoutine()">Build Your Routine</button><button class="btn-secondary btn-ripple" onclick="scrollToProducts()">Shop Now</button></div></div></section>
+
+<!-- Routine Builder Section -->
+<section class="routine-section" id="routine-builder">
+<div class="section-header fade-up">
+<h2>Glow Routine Builder</h2>
+<p>Tell us your goal, we'll create your perfect routine</p>
+<div class="section-divider"></div>
+</div>
+<div class="routine-builder">
+<p class="routine-step-title"><span>1</span> Choose Your Goal</p>
+<div class="goal-cards" id="goal-cards">
+<div class="goal-card" data-goal="hydration" onclick="selectGoal(this)">
+<div class="goal-card-title">Hydration</div>
+<div class="goal-card-desc">Deep moisture for dry skin</div>
+</div>
+<div class="goal-card" data-goal="glow" onclick="selectGoal(this)">
+<div class="goal-card-title">Glow & Radiance</div>
+<div class="goal-card-desc">Get that natural shine</div>
+</div>
+<div class="goal-card" data-goal="smooth" onclick="selectGoal(this)">
+<div class="goal-card-title">Smooth & Soft</div>
+<div class="goal-card-desc">Exfoliate & nourish</div>
+</div>
+<div class="goal-card" data-goal="haircare" onclick="selectGoal(this)">
+<div class="goal-card-title">Hair Care</div>
+<div class="goal-card-desc">Complete hair routine</div>
+</div>
+<div class="goal-card" data-goal="pamper" onclick="selectGoal(this)">
+<div class="goal-card-title">Full Body Pamper</div>
+<div class="goal-card-desc">Ultimate self-care</div>
+</div>
+<div class="goal-card" data-goal="tanning" onclick="selectGoal(this)">
+<div class="goal-card-title">Tanning & Bronze</div>
+<div class="goal-card-desc">Summer glow ready</div>
+</div>
+</div>
+<p class="routine-step-title" id="scent-step" style="display:none"><span>2</span> Pick Your Scent</p>
+<div class="scent-selector" id="scent-selector" style="display:none">
+<button class="scent-btn" data-scent="Raspberry" onclick="selectScent(this)"><span class="scent-dot"></span> Raspberry</button>
+<button class="scent-btn" data-scent="Strawberry" onclick="selectScent(this)"><span class="scent-dot"></span> Strawberry</button>
+<button class="scent-btn" data-scent="Coconut Vanilla" onclick="selectScent(this)"><span class="scent-dot"></span> Coconut Vanilla</button>
+<button class="scent-btn" data-scent="Marshmallow" onclick="selectScent(this)"><span class="scent-dot"></span> Marshmallow</button>
+</div>
+<div class="routine-result" id="routine-result">
+<div class="routine-result-header">
+<h3>Your Personalized Routine</h3>
+<p id="routine-description"></p>
+</div>
+<div class="routine-steps" id="routine-steps"></div>
+<div class="routine-total">
+<div class="routine-total-label">Routine Total<span>All products needed</span></div>
+<div class="routine-total-price" id="routine-total-price">$0</div>
+</div>
+<div class="routine-actions">
+<button class="btn-primary btn-ripple" onclick="addRoutineToCart()">Add All to Bag</button>
+<button class="btn-secondary btn-ripple" onclick="resetRoutine()">Start Over</button>
+</div>
+</div>
+</div>
+</section>
+
 <section class="products-section" id="products"><div class="section-header fade-up"><h2>Our Collection</h2><p>Handcrafted with love, designed for your glow</p><div class="section-divider"></div></div><div class="filter-search-bar fade-up"><button class="filter-btn active" data-filter="All" onclick="setFilter('All')">All</button><button class="filter-btn" data-filter="Body Splash" onclick="setFilter('Body Splash')">Body Splash</button><button class="filter-btn" data-filter="Body Butter" onclick="setFilter('Body Butter')">Body Butter</button><button class="filter-btn" data-filter="Sugar Scrub" onclick="setFilter('Sugar Scrub')">Sugar Scrub</button><button class="filter-btn" data-filter="Hair Care" onclick="setFilter('Hair Care')">Hair Care</button><button class="filter-btn" data-filter="Body Oil" onclick="setFilter('Body Oil')">Body Oil</button><button class="filter-btn" data-filter="Creams" onclick="setFilter('Creams')">Creams</button><button class="filter-btn" data-filter="Eye Care" onclick="setFilter('Eye Care')">Eye Care</button><button class="filter-btn" data-filter="Offers" onclick="setFilter('Offers')">Offers</button><div class="search-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input type="text" id="search-input" placeholder="Search products..." oninput="filterProducts()"></div></div><div class="product-grid" id="product-grid"></div></section>
 <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
 <div class="cart-sidebar" id="cart-sidebar"><div class="cart-header"><h3>Your Bag</h3><button class="cart-close" onclick="toggleCart()">&#10005;</button></div><div class="cart-items" id="cart-items"></div><div class="cart-footer" id="cart-footer" style="display:none"><p class="cart-shipping">&#10024; Free shipping on orders above $50</p><div class="cart-total-row"><span class="cart-total-label">Total</span><span class="cart-total-value" id="cart-total">$0</span></div><button class="checkout-btn btn-ripple" onclick="checkout()"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.616l4.503-1.469A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.584l-.39-.234-2.67.872.862-2.634-.258-.406A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg> Checkout via WhatsApp</button></div></div>
@@ -180,40 +289,38 @@ footer{background:var(--white);padding:60px 40px 30px;border-top:1px solid #f0f0
 <div class="toast-container" id="toast-container"></div>
 <div class="floating-btns"><button class="float-btn backtop" id="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button><a href="https://www.instagram.com/theglowmera?utm_source=qr" target="_blank" class="float-btn instagram" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a><a href="https://wa.me/96178836888" target="_blank" class="float-btn whatsapp" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.616l4.503-1.469A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.584l-.39-.234-2.67.872.862-2.634-.258-.406A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a></div>
 <footer><div class="footer-inner"><div class="footer-brand"><img src="https://i.imgur.com/YTplA5D.jpeg" alt="THE GLOWMERA"><span>THE GLOWMERA</span></div><p class="footer-desc">Premium handcrafted skincare products made with love. Nourishing your skin with the finest natural ingredients for a radiant, healthy glow.</p><div class="footer-socials"><a href="https://www.instagram.com/theglowmera?utm_source=qr" target="_blank" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a><a href="https://wa.me/96178836888" target="_blank" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.616l4.503-1.469A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.584l-.39-.234-2.67.872.862-2.634-.258-.406A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a></div><p class="footer-copy">&copy; 2025 THE GLOWMERA. All rights reserved. Made with <span>&#10084;&#65039;</span> in Lebanon</p></div></footer>
-<div id="root"></div>
-<script type="module" src="/src/main.tsx"></script>
 <script>
 var products=[
-{id:1,name:"Raspberry Body Splash",price:9,image:"https://i.imgur.com/UMrGU9J.jpeg",category:"Body Splash"},
-{id:2,name:"Raspberry Sugar Scrub",price:9,image:"https://i.imgur.com/ZPRcc6P.jpeg",category:"Sugar Scrub"},
-{id:3,name:"Raspberry Body Butter",price:10,image:"https://i.imgur.com/vrqHk5d.jpeg",category:"Body Butter"},
-{id:4,name:"Strawberry Body Splash",price:9,image:"https://i.imgur.com/Ki8nw3R.jpeg",category:"Body Splash"},
-{id:5,name:"Strawberry Body Butter",price:10,image:"https://i.imgur.com/wnleo7N.jpeg",category:"Body Butter"},
-{id:6,name:"Strawberry Sugar Scrub",price:9,image:"https://i.imgur.com/rwnCylZ.jpeg",category:"Sugar Scrub"},
-{id:7,name:"Coconut Vanilla Sugar Scrub",price:9,image:"https://i.imgur.com/pypVMSf.jpeg",category:"Sugar Scrub"},
-{id:8,name:"Coco Vanilla Body Splash",price:9,image:"https://i.imgur.com/3MztSeo.jpeg",category:"Body Splash"},
-{id:9,name:"Coco Vanilla Body Butter",price:10,image:"https://i.imgur.com/GwKmPyP.jpeg",category:"Body Butter"},
+{id:1,name:"Raspberry Body Splash",price:9,image:"https://i.imgur.com/UMrGU9J.jpeg",category:"Body Splash",scent:"Raspberry"},
+{id:2,name:"Raspberry Sugar Scrub",price:9,image:"https://i.imgur.com/ZPRcc6P.jpeg",category:"Sugar Scrub",scent:"Raspberry"},
+{id:3,name:"Raspberry Body Butter",price:10,image:"https://i.imgur.com/vrqHk5d.jpeg",category:"Body Butter",scent:"Raspberry"},
+{id:4,name:"Strawberry Body Splash",price:9,image:"https://i.imgur.com/Ki8nw3R.jpeg",category:"Body Splash",scent:"Strawberry"},
+{id:5,name:"Strawberry Body Butter",price:10,image:"https://i.imgur.com/wnleo7N.jpeg",category:"Body Butter",scent:"Strawberry"},
+{id:6,name:"Strawberry Sugar Scrub",price:9,image:"https://i.imgur.com/rwnCylZ.jpeg",category:"Sugar Scrub",scent:"Strawberry"},
+{id:7,name:"Coconut Vanilla Sugar Scrub",price:9,image:"https://i.imgur.com/pypVMSf.jpeg",category:"Sugar Scrub",scent:"Coconut Vanilla"},
+{id:8,name:"Coco Vanilla Body Splash",price:9,image:"https://i.imgur.com/3MztSeo.jpeg",category:"Body Splash",scent:"Coconut Vanilla"},
+{id:9,name:"Coco Vanilla Body Butter",price:10,image:"https://i.imgur.com/GwKmPyP.jpeg",category:"Body Butter",scent:"Coconut Vanilla"},
 {id:10,name:"HOL Full Bundle Offer",price:25,oldPrice:28,freeGift:true,image:"https://i.imgur.com/L2HQbIc.jpeg",category:"Offers"},
 {id:11,name:"HOL Full Bundle Offer",price:25,oldPrice:28,freeGift:true,image:"https://i.imgur.com/PjcvbUW.jpeg",category:"Offers"},
 {id:12,name:"HOL Full Bundle Offer",price:25,oldPrice:28,freeGift:true,image:"https://i.imgur.com/SSN3BQI.jpeg",category:"Offers"},
 {id:13,name:"Tanning Oil With Glitter",price:9,image:"https://i.imgur.com/ea4Tkx3.jpeg",category:"Body Oil"},
 {id:14,name:"Tanning Oil Without Glitter",price:9,image:"https://i.imgur.com/PLiDHAe.jpeg",category:"Body Oil"},
 {id:15,name:"Bronzing Body Oil",price:8,image:"https://i.imgur.com/TWsx5Ol.jpeg",category:"Body Oil"},
-{id:16,name:"Marshmallow Body Oil",price:8,image:"https://i.imgur.com/KCrKk5w.jpeg",category:"Body Oil"},
+{id:16,name:"Marshmallow Body Oil",price:8,image:"https://i.imgur.com/KCrKk5w.jpeg",category:"Body Oil",scent:"Marshmallow"},
 {id:17,name:"Hair Mask",price:10,image:"https://i.imgur.com/cT7q9T4.jpeg",category:"Hair Care"},
 {id:18,name:"Hair Serum",price:9,image:"https://i.imgur.com/0yxwV9A.jpeg",category:"Hair Care"},
 {id:19,name:"Growth Hair Spray",price:10,image:"https://i.imgur.com/yBmWYNY.jpeg",category:"Hair Care"},
 {id:20,name:"Whitening Cream",price:8,image:"https://i.imgur.com/ICAwYjY.jpeg",category:"Creams"},
 {id:21,name:"Heel Cream",price:8,image:"https://i.imgur.com/IB6IMFc.jpeg",category:"Creams"},
-{id:22,name:"Marshmallow Body Splash",price:9,image:"https://i.imgur.com/z0gyimn.jpeg",category:"Body Splash"},
-{id:23,name:"Marshmallow Sugar Scrub",price:9,image:"https://i.imgur.com/7BKdNUa.jpeg",category:"Sugar Scrub"},
-{id:24,name:"Marshmallow Body Butter",price:10,image:"https://i.imgur.com/wMU67nG.jpeg",category:"Body Butter"},
+{id:22,name:"Marshmallow Body Splash",price:9,image:"https://i.imgur.com/z0gyimn.jpeg",category:"Body Splash",scent:"Marshmallow"},
+{id:23,name:"Marshmallow Sugar Scrub",price:9,image:"https://i.imgur.com/7BKdNUa.jpeg",category:"Sugar Scrub",scent:"Marshmallow"},
+{id:24,name:"Marshmallow Body Butter",price:10,image:"https://i.imgur.com/wMU67nG.jpeg",category:"Body Butter",scent:"Marshmallow"},
 {id:25,name:"Marshmallow Set",price:25,oldPrice:28,image:"https://i.imgur.com/QGAQTTs.jpeg",category:"Offers"},
 {id:26,name:"Marshmallow Set + Oil Offer",price:30,oldPrice:36,image:"https://i.imgur.com/kveIddl.jpeg",category:"Offers"},
-{id:27,name:"Strawberry Hair Mist",price:8,image:"https://i.imgur.com/cvTXJxY.jpeg",category:"Hair Care"},
-{id:28,name:"Coconut Vanilla Hair Mist",price:8,image:"https://i.imgur.com/r3UtJYL.jpeg",category:"Hair Care"},
-{id:29,name:"Raspberry Hair Mist",price:8,image:"https://i.imgur.com/6JVA1NF.jpeg",category:"Hair Care"},
-{id:30,name:"Marshmallow Hair Mist",price:8,image:"https://i.imgur.com/z3iCUXM.jpeg",category:"Hair Care"},
+{id:27,name:"Strawberry Hair Mist",price:8,image:"https://i.imgur.com/cvTXJxY.jpeg",category:"Hair Care",scent:"Strawberry"},
+{id:28,name:"Coconut Vanilla Hair Mist",price:8,image:"https://i.imgur.com/r3UtJYL.jpeg",category:"Hair Care",scent:"Coconut Vanilla"},
+{id:29,name:"Raspberry Hair Mist",price:8,image:"https://i.imgur.com/6JVA1NF.jpeg",category:"Hair Care",scent:"Raspberry"},
+{id:30,name:"Marshmallow Hair Mist",price:8,image:"https://i.imgur.com/z3iCUXM.jpeg",category:"Hair Care",scent:"Marshmallow"},
 {id:31,name:"Strawberry Full Set",price:30,oldPrice:36,image:"https://i.imgur.com/85NeVF2.jpeg",category:"Offers"},
 {id:32,name:"Raspberry Full Set",price:30,oldPrice:36,image:"https://i.imgur.com/TiWf89r.jpeg",category:"Offers"},
 {id:33,name:"Coconut Vanilla Full Set",price:30,oldPrice:36,image:"https://i.imgur.com/S3ui40R.jpeg",category:"Offers"},
@@ -224,7 +331,59 @@ var products=[
 {id:38,name:"Gel & Serum Set",price:14,oldPrice:16,image:"https://i.imgur.com/LZy0wgx.jpeg",category:"Offers"}
 ];
 var cart=[];var quantities={};var wishlist=new Set();var activeFilter='All';
+var selectedGoal=null;var selectedScent=null;var currentRoutine=[];
+
+var routines={
+hydration:{name:"Hydration & Moisture Routine",desc:"Perfect for dry skin that needs deep hydration",needsScent:true,steps:[
+{category:"Sugar Scrub",instruction:"Exfoliate to prep skin"},
+{category:"Body Butter",instruction:"Deep moisture"},
+{category:"Body Splash",instruction:"Lock in hydration"}
+]},
+glow:{name:"Glow & Radiance Routine",desc:"Get that natural luminous shine",needsScent:true,steps:[
+{category:"Sugar Scrub",instruction:"Remove dead skin cells"},
+{category:"Body Oil",instruction:"Add natural glow",useGeneric:true},
+{category:"Body Splash",instruction:"Finishing touch"}
+]},
+smooth:{name:"Smooth & Soft Routine",desc:"For silky smooth skin all over",needsScent:true,steps:[
+{category:"Sugar Scrub",instruction:"Gentle exfoliation"},
+{category:"Body Butter",instruction:"Nourish deeply"},
+{category:"Creams",instruction:"Target specific areas",useGeneric:true}
+]},
+haircare:{name:"Complete Hair Care Routine",desc:"From roots to tips, complete care",needsScent:true,steps:[
+{category:"Hair Care",instruction:"Deep treatment",productName:"Hair Mask"},
+{category:"Hair Care",instruction:"Nourish strands",productName:"Hair Serum"},
+{category:"Hair Care",instruction:"Strengthen hair",productName:"Growth Hair Spray"},
+{category:"Hair Care",instruction:"Finish with fragrance",isMist:true}
+]},
+pamper:{name:"Full Body Pamper Routine",desc:"The ultimate self-care experience",needsScent:true,steps:[
+{category:"Sugar Scrub",instruction:"Start with exfoliation"},
+{category:"Body Butter",instruction:"Rich moisture"},
+{category:"Body Oil",instruction:"Extra nourishment",useGeneric:true},
+{category:"Body Splash",instruction:"Signature scent"}
+]},
+tanning:{name:"Tanning & Bronze Routine",desc:"Get summer-ready golden skin",needsScent:false,steps:[
+{category:"Sugar Scrub",instruction:"Prep skin for even tan",useAny:true},
+{category:"Body Oil",instruction:"Apply tanning oil",productName:"Tanning Oil With Glitter"},
+{category:"Body Oil",instruction:"Set the glow",productName:"Bronzing Body Oil"}
+]}
+};
+
 document.addEventListener('DOMContentLoaded',function(){products.forEach(function(p){quantities[p.id]=1});renderProducts();createBubbles();initScrollAnimations();initParallax()});
+
+function selectGoal(el){document.querySelectorAll('.goal-card').forEach(function(c){c.classList.remove('selected')});el.classList.add('selected');selectedGoal=el.dataset.goal;var routine=routines[selectedGoal];if(routine.needsScent){document.getElementById('scent-step').style.display='block';document.getElementById('scent-selector').style.display='flex';document.getElementById('routine-result').classList.remove('show');selectedScent=null;document.querySelectorAll('.scent-btn').forEach(function(b){b.classList.remove('selected')})}else{document.getElementById('scent-step').style.display='none';document.getElementById('scent-selector').style.display='none';buildRoutine()}}
+
+function selectScent(el){document.querySelectorAll('.scent-btn').forEach(function(b){b.classList.remove('selected')});el.classList.add('selected');selectedScent=el.dataset.scent;buildRoutine()}
+
+function findProduct(category,scent,productName,isMist,useGeneric,useAny){if(productName){return products.find(function(p){return p.name.includes(productName)})}if(isMist){return products.find(function(p){return p.category==='Hair Care'&&p.name.includes('Hair Mist')&&p.scent===scent})}if(useGeneric||useAny){var found=products.find(function(p){return p.category===category&&!p.oldPrice});if(found)return found}return products.find(function(p){return p.category===category&&p.scent===scent})||products.find(function(p){return p.category===category&&!p.oldPrice})}
+
+function buildRoutine(){if(!selectedGoal)return;var routine=routines[selectedGoal];if(routine.needsScent&&!selectedScent)return;currentRoutine=[];var stepsHtml='';var total=0;routine.steps.forEach(function(step,i){var product=findProduct(step.category,selectedScent,step.productName,step.isMist,step.useGeneric,step.useAny);if(product){currentRoutine.push(product);total+=product.price;stepsHtml+='<div class="routine-step"><div class="routine-step-num">'+(i+1)+'</div><div class="routine-step-product"><img src="'+product.image+'" alt="'+product.name+'"><div class="routine-step-info"><h4>'+product.name+'</h4><p>'+step.instruction+'</p><div class="price">$'+product.price+'</div></div></div></div>'}});document.getElementById('routine-steps').innerHTML=stepsHtml;document.getElementById('routine-total-price').textContent='$'+total;document.getElementById('routine-description').textContent=routine.desc;document.getElementById('routine-result').classList.add('show');document.getElementById('routine-result').scrollIntoView({behavior:'smooth',block:'center'})}
+
+function addRoutineToCart(){currentRoutine.forEach(function(product){var existing=cart.find(function(c){return c.id===product.id});if(existing){existing.qty+=1}else{cart.push(Object.assign({},product,{qty:1}))}});updateCartCount();renderCart();showToast({name:'Routine Added!',image:currentRoutine[0].image});toggleCart()}
+
+function resetRoutine(){selectedGoal=null;selectedScent=null;currentRoutine=[];document.querySelectorAll('.goal-card').forEach(function(c){c.classList.remove('selected')});document.querySelectorAll('.scent-btn').forEach(function(b){b.classList.remove('selected')});document.getElementById('scent-step').style.display='none';document.getElementById('scent-selector').style.display='none';document.getElementById('routine-result').classList.remove('show')}
+
+function scrollToRoutine(){document.getElementById('routine-builder').scrollIntoView({behavior:'smooth'})}
+
 function renderProducts(){var grid=document.getElementById('product-grid');grid.innerHTML='';var search=document.getElementById('search-input').value.toLowerCase();products.forEach(function(p,i){var matchFilter=activeFilter==='All'||p.category===activeFilter;var matchSearch=p.name.toLowerCase().includes(search);if(!matchFilter||!matchSearch)return;var card=document.createElement('div');card.className='product-card fade-up';card.style.animationDelay=i*30+'ms';var isLiked=wishlist.has(p.id);var badgeHTML='';if(p.freeGift)badgeHTML='<span class="product-badge">Free Gift</span>';else if(p.oldPrice)badgeHTML='<span class="product-badge">Save $'+(p.oldPrice-p.price)+'</span>';card.innerHTML='<div class="product-card-img"><img src="'+p.image+'" alt="'+p.name+'" loading="lazy">'+badgeHTML+'<button class="product-wishlist '+(isLiked?'liked':'')+'" onclick="toggleWishlist('+p.id+', this)" aria-label="Wishlist"><svg width="16" height="16" viewBox="0 0 24 24" fill="'+(isLiked?'currentColor':'none')+'" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button><button class="product-quick-view" onclick="openQuickView('+p.id+')">Quick View</button></div><div class="product-info"><div class="product-name">'+p.name+'</div><div class="product-price-row"><span class="product-price">$'+p.price+'</span>'+(p.oldPrice?'<span class="product-old-price">$'+p.oldPrice+'</span>':'')+'</div>'+(p.freeGift?'<div class="product-free-gift">+ Free Gift Included</div>':'')+'<div class="product-actions"><div class="qty-selector"><button onclick="changeQty('+p.id+',-1)">&#8722;</button><span id="qty-'+p.id+'">'+quantities[p.id]+'</span><button onclick="changeQty('+p.id+',1)">+</button></div><button class="add-to-cart-btn btn-ripple" onclick="addToCart('+p.id+',event)">Add to Bag</button></div></div>';grid.appendChild(card)});requestAnimationFrame(function(){document.querySelectorAll('.product-card.fade-up').forEach(function(el,i){setTimeout(function(){el.classList.add('visible')},i*50)})})}
 function setFilter(filter){activeFilter=filter;document.querySelectorAll('.filter-btn').forEach(function(btn){btn.classList.toggle('active',btn.dataset.filter===filter)});renderProducts()}
 function filterProducts(){renderProducts()}
