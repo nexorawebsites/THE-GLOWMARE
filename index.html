@@ -75,7 +75,8 @@ img{max-width:100%;display:block}
 .goal-card{background:var(--white);border:2px solid transparent;border-radius:var(--radius-lg);padding:24px 16px;text-align:center;cursor:pointer;transition:all .3s;box-shadow:0 4px 15px rgba(0,0,0,.05)}
 .goal-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.1)}
 .goal-card.selected{border-color:var(--accent);background:linear-gradient(135deg,#fdf3f6,#fff)}
-.goal-card-title{font-size:1rem;font-weight:600;margin-bottom:6px;letter-spacing:.5px}
+.goal-card-icon{font-size:2rem;margin-bottom:12px}
+.goal-card-title{font-size:.85rem;font-weight:600;margin-bottom:6px}
 .goal-card-desc{font-size:.7rem;color:#a39b98;line-height:1.5}
 .scent-selector{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:40px}
 .scent-btn{background:var(--white);border:2px solid #f0e5e8;padding:12px 24px;border-radius:50px;cursor:pointer;font-size:.75rem;font-weight:500;transition:all .3s;display:flex;align-items:center;gap:8px}
@@ -86,6 +87,9 @@ img{max-width:100%;display:block}
 .scent-btn[data-scent="Strawberry"] .scent-dot{background:#ff6b6b}
 .scent-btn[data-scent="Coconut Vanilla"] .scent-dot{background:#f5e6ca}
 .scent-btn[data-scent="Marshmallow"] .scent-dot{background:#ffd1dc}
+.scent-btn[data-scent="Berry"] .scent-dot{background:#8b3a5c}
+.scent-btn[data-scent="Candy"] .scent-dot{background:#ff9cc2}
+.scent-btn[data-scent="Green Tea"] .scent-dot{background:#8fbc8f}
 .routine-result{display:none;background:var(--white);border-radius:var(--radius-lg);padding:30px;box-shadow:0 10px 40px rgba(0,0,0,.08)}
 .routine-result.show{display:block;animation:fadeIn .5s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
@@ -233,26 +237,32 @@ footer{background:var(--white);padding:60px 40px 30px;border-top:1px solid #f0f0
 <p class="routine-step-title"><span>1</span> Choose Your Goal</p>
 <div class="goal-cards" id="goal-cards">
 <div class="goal-card" data-goal="hydration" onclick="selectGoal(this)">
+<div class="goal-card-icon" style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--accent);font-weight:600">H</div>
 <div class="goal-card-title">Hydration</div>
 <div class="goal-card-desc">Deep moisture for dry skin</div>
 </div>
 <div class="goal-card" data-goal="glow" onclick="selectGoal(this)">
+<div class="goal-card-icon" style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--accent);font-weight:600">G</div>
 <div class="goal-card-title">Glow & Radiance</div>
 <div class="goal-card-desc">Get that natural shine</div>
 </div>
 <div class="goal-card" data-goal="smooth" onclick="selectGoal(this)">
+<div class="goal-card-icon" style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--accent);font-weight:600">S</div>
 <div class="goal-card-title">Smooth & Soft</div>
 <div class="goal-card-desc">Exfoliate & nourish</div>
 </div>
 <div class="goal-card" data-goal="haircare" onclick="selectGoal(this)">
+<div class="goal-card-icon" style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--accent);font-weight:600">H</div>
 <div class="goal-card-title">Hair Care</div>
 <div class="goal-card-desc">Complete hair routine</div>
 </div>
 <div class="goal-card" data-goal="pamper" onclick="selectGoal(this)">
+<div class="goal-card-icon" style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--accent);font-weight:600">P</div>
 <div class="goal-card-title">Full Body Pamper</div>
 <div class="goal-card-desc">Ultimate self-care</div>
 </div>
 <div class="goal-card" data-goal="tanning" onclick="selectGoal(this)">
+<div class="goal-card-icon" style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--accent);font-weight:600">T</div>
 <div class="goal-card-title">Tanning & Bronze</div>
 <div class="goal-card-desc">Summer glow ready</div>
 </div>
@@ -263,6 +273,9 @@ footer{background:var(--white);padding:60px 40px 30px;border-top:1px solid #f0f0
 <button class="scent-btn" data-scent="Strawberry" onclick="selectScent(this)"><span class="scent-dot"></span> Strawberry</button>
 <button class="scent-btn" data-scent="Coconut Vanilla" onclick="selectScent(this)"><span class="scent-dot"></span> Coconut Vanilla</button>
 <button class="scent-btn" data-scent="Marshmallow" onclick="selectScent(this)"><span class="scent-dot"></span> Marshmallow</button>
+<button class="scent-btn" data-scent="Berry" onclick="selectScent(this)"><span class="scent-dot"></span> Berry</button>
+<button class="scent-btn" data-scent="Candy" onclick="selectScent(this)"><span class="scent-dot"></span> Candy</button>
+<button class="scent-btn" data-scent="Green Tea" onclick="selectScent(this)"><span class="scent-dot"></span> Green Tea</button>
 </div>
 <div class="routine-result" id="routine-result">
 <div class="routine-result-header">
@@ -284,7 +297,7 @@ footer{background:var(--white);padding:60px 40px 30px;border-top:1px solid #f0f0
 
 <section class="products-section" id="products"><div class="section-header fade-up"><h2>Our Collection</h2><p>Handcrafted with love, designed for your glow</p><div class="section-divider"></div></div><div class="filter-search-bar fade-up"><button class="filter-btn active" data-filter="All" onclick="setFilter('All')">All</button><button class="filter-btn" data-filter="Body Splash" onclick="setFilter('Body Splash')">Body Splash</button><button class="filter-btn" data-filter="Body Butter" onclick="setFilter('Body Butter')">Body Butter</button><button class="filter-btn" data-filter="Sugar Scrub" onclick="setFilter('Sugar Scrub')">Sugar Scrub</button><button class="filter-btn" data-filter="Hair Care" onclick="setFilter('Hair Care')">Hair Care</button><button class="filter-btn" data-filter="Body Oil" onclick="setFilter('Body Oil')">Body Oil</button><button class="filter-btn" data-filter="Creams" onclick="setFilter('Creams')">Creams</button><button class="filter-btn" data-filter="Eye Care" onclick="setFilter('Eye Care')">Eye Care</button><button class="filter-btn" data-filter="Offers" onclick="setFilter('Offers')">Offers</button><div class="search-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input type="text" id="search-input" placeholder="Search products..." oninput="filterProducts()"></div></div><div class="product-grid" id="product-grid"></div></section>
 <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
-<div class="cart-sidebar" id="cart-sidebar"><div class="cart-header"><h3>Your Bag</h3><button class="cart-close" onclick="toggleCart()">&#10005;</button></div><div class="cart-items" id="cart-items"></div><div class="cart-footer" id="cart-footer" style="display:none"><p class="cart-shipping">&#10024; Free shipping on orders above $50</p><div class="cart-total-row"><span class="cart-total-label">Total</span><span class="cart-total-value" id="cart-total">$0</span></div><button class="checkout-btn btn-ripple" onclick="checkout()"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.616l4.503-1.469A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.584l-.39-.234-2.67.872.862-2.634-.258-.406A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg> Checkout via WhatsApp</button></div></div>
+<div class="cart-sidebar" id="cart-sidebar"><div class="cart-header"><h3>Your Bag</h3><button class="cart-close" onclick="toggleCart()">&#10005;</button></div><div class="cart-items" id="cart-items"></div><div class="cart-footer" id="cart-footer" style="display:none"><p class="cart-shipping">Free shipping on orders above $50</p><div class="cart-total-row"><span class="cart-total-label">Total</span><span class="cart-total-value" id="cart-total">$0</span></div><button class="checkout-btn btn-ripple" onclick="checkout()"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.616l4.503-1.469A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.584l-.39-.234-2.67.872.862-2.634-.258-.406A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg> Checkout via WhatsApp</button></div></div>
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)"><div class="modal-content" style="position:relative"><button class="modal-close" onclick="closeQuickView()">&#10005;</button><img class="modal-img" id="modal-img" src="" alt=""><div class="modal-info"><h2 id="modal-name"></h2><div class="modal-price" id="modal-price"></div><p class="modal-desc" id="modal-desc">Handcrafted with premium natural ingredients for a luxurious skincare experience. Our products are designed to nourish, hydrate, and leave your skin feeling silky smooth.</p><div class="modal-actions"><button class="btn-primary btn-ripple" id="modal-add-btn">Add to Bag</button></div></div></div></div>
 <div class="toast-container" id="toast-container"></div>
 <div class="floating-btns"><button class="float-btn backtop" id="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button><a href="https://www.instagram.com/theglowmera?utm_source=qr" target="_blank" class="float-btn instagram" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a><a href="https://wa.me/96178836888" target="_blank" class="float-btn whatsapp" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.616l4.503-1.469A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.584l-.39-.234-2.67.872.862-2.634-.258-.406A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a></div>
@@ -328,26 +341,33 @@ var products=[
 {id:35,name:"Marshmallow Full Set + Oil",price:35,oldPrice:44,image:"https://i.imgur.com/gPf4kH4.jpeg",category:"Offers"},
 {id:36,name:"Eyebrows Gel",price:8,image:"https://i.imgur.com/1moJN5P.jpeg",category:"Eye Care"},
 {id:37,name:"Eyebrows & Eyelashes Serum",price:8,image:"https://i.imgur.com/zdNXbuw.jpeg",category:"Eye Care"},
-{id:38,name:"Gel & Serum Set",price:14,oldPrice:16,image:"https://i.imgur.com/LZy0wgx.jpeg",category:"Offers"}
+{id:38,name:"Gel & Serum Set",price:14,oldPrice:16,image:"https://i.imgur.com/LZy0wgx.jpeg",category:"Offers"},
+{id:39,name:"Candy Body Splash",price:7,image:"https://i.imgur.com/VS9Yj7r.jpeg",category:"Body Splash",scent:"Candy"},
+{id:40,name:"Berry Body Splash",price:7,image:"https://i.imgur.com/1NwSYF5.jpeg",category:"Body Splash",scent:"Berry"},
+{id:41,name:"Green Tea Body Splash",price:7,image:"https://i.imgur.com/r5Box2o.jpeg",category:"Body Splash",scent:"Green Tea"},
+{id:42,name:"Green Tea Body Scrub",price:10,image:"https://i.imgur.com/NYbmG3u.jpeg",category:"Sugar Scrub",scent:"Green Tea"},
+{id:43,name:"Berry Body Scrub",price:10,image:"https://i.imgur.com/1oshBBv.jpeg",category:"Sugar Scrub",scent:"Berry"},
+{id:44,name:"Candy Body Scrub",price:10,image:"https://i.imgur.com/rsP4jRb.jpeg",category:"Sugar Scrub",scent:"Candy"},
+{id:45,name:"Green Tea Body Butter",price:10,image:"https://i.imgur.com/TcrmgXV.jpeg",category:"Body Butter",scent:"Green Tea"},
+{id:46,name:"Berry Body Butter",price:10,image:"https://i.imgur.com/qRob5Ru.jpeg",category:"Body Butter",scent:"Berry"}
 ];
 var cart=[];var quantities={};var wishlist=new Set();var activeFilter='All';
 var selectedGoal=null;var selectedScent=null;var currentRoutine=[];
 
 var routines={
 hydration:{name:"Hydration & Moisture Routine",desc:"Perfect for dry skin that needs deep hydration",needsScent:true,steps:[
-{category:"Sugar Scrub",instruction:"Exfoliate to prep skin"},
-{category:"Body Butter",instruction:"Deep moisture"},
-{category:"Body Splash",instruction:"Lock in hydration"}
+{category:"Body Butter",instruction:"Deep moisture cream"},
+{category:"Body Oil",instruction:"Marshmallow body oil",productName:"Marshmallow Body Oil"},
+{category:"Body Oil",instruction:"Bronzing hydration",productName:"Bronzing Body Oil"}
 ]},
 glow:{name:"Glow & Radiance Routine",desc:"Get that natural luminous shine",needsScent:true,steps:[
-{category:"Sugar Scrub",instruction:"Remove dead skin cells"},
-{category:"Body Oil",instruction:"Add natural glow",useGeneric:true},
-{category:"Body Splash",instruction:"Finishing touch"}
+{category:"Sugar Scrub",instruction:"Exfoliate to reveal fresh skin"},
+{category:"Creams",instruction:"Whitening cream for radiance",productName:"Whitening Cream"}
 ]},
 smooth:{name:"Smooth & Soft Routine",desc:"For silky smooth skin all over",needsScent:true,steps:[
 {category:"Sugar Scrub",instruction:"Gentle exfoliation"},
-{category:"Body Butter",instruction:"Nourish deeply"},
-{category:"Creams",instruction:"Target specific areas",useGeneric:true}
+{category:"Body Butter",instruction:"Rich nourishing butter"},
+{category:"Body Splash",instruction:"Signature scent finish"}
 ]},
 haircare:{name:"Complete Hair Care Routine",desc:"From roots to tips, complete care",needsScent:true,steps:[
 {category:"Hair Care",instruction:"Deep treatment",productName:"Hair Mask"},
@@ -396,7 +416,7 @@ function flyToCart(event,product){var cartIcon=document.getElementById('cart-ico
 function showToast(product){var container=document.getElementById('toast-container');var toast=document.createElement('div');toast.className='toast';toast.innerHTML='<img src="'+product.image+'" alt="'+product.name+'"><div class="toast-text"><strong>Added to Bag</strong><span>'+product.name+'</span></div>';container.appendChild(toast);setTimeout(function(){toast.remove()},3000)}
 function updateCartCount(){var count=cart.reduce(function(sum,c){return sum+c.qty},0);document.getElementById('cart-count').textContent=count}
 function toggleCart(){document.getElementById('cart-overlay').classList.toggle('show');document.getElementById('cart-sidebar').classList.toggle('open');renderCart()}
-function renderCart(){var itemsEl=document.getElementById('cart-items');var footerEl=document.getElementById('cart-footer');if(cart.length===0){itemsEl.innerHTML='<div class="cart-empty">Your bag is empty &#10024;</div>';footerEl.style.display='none';return}footerEl.style.display='block';var html='';cart.forEach(function(item){html+='<div class="cart-item"><img src="'+item.image+'" alt="'+item.name+'"><div class="cart-item-info"><div class="cart-item-name">'+item.name+'</div><div class="cart-item-price">$'+item.price*item.qty+'</div><div class="cart-item-qty"><button onclick="updateCartQty('+item.id+',-1)">&#8722;</button><span>'+item.qty+'</span><button onclick="updateCartQty('+item.id+',1)">+</button></div></div><button class="cart-item-remove" onclick="removeFromCart('+item.id+')">&#10005;</button></div>'});itemsEl.innerHTML=html;var total=cart.reduce(function(sum,c){return sum+c.price*c.qty},0);document.getElementById('cart-total').textContent='$'+total}
+function renderCart(){var itemsEl=document.getElementById('cart-items');var footerEl=document.getElementById('cart-footer');if(cart.length===0){itemsEl.innerHTML='<div class="cart-empty">Your bag is empty</div>';footerEl.style.display='none';return}footerEl.style.display='block';var html='';cart.forEach(function(item){html+='<div class="cart-item"><img src="'+item.image+'" alt="'+item.name+'"><div class="cart-item-info"><div class="cart-item-name">'+item.name+'</div><div class="cart-item-price">$'+item.price*item.qty+'</div><div class="cart-item-qty"><button onclick="updateCartQty('+item.id+',-1)">&#8722;</button><span>'+item.qty+'</span><button onclick="updateCartQty('+item.id+',1)">+</button></div></div><button class="cart-item-remove" onclick="removeFromCart('+item.id+')">&#10005;</button></div>'});itemsEl.innerHTML=html;var total=cart.reduce(function(sum,c){return sum+c.price*c.qty},0);document.getElementById('cart-total').textContent='$'+total}
 function updateCartQty(id,delta){var item=cart.find(function(c){return c.id===id});if(!item)return;item.qty=Math.max(1,item.qty+delta);updateCartCount();renderCart()}
 function removeFromCart(id){cart=cart.filter(function(c){return c.id!==id});updateCartCount();renderCart()}
 function checkout(){if(cart.length===0)return;var message='Hello THE GLOWMERA! I would like to order:%0A%0A';cart.forEach(function(item){message+='• '+item.name+' x'+item.qty+' - $'+item.price*item.qty+'%0A'});var total=cart.reduce(function(sum,c){return sum+c.price*c.qty},0);message+='%0ATotal: $'+total;window.open('https://wa.me/96178836888?text='+message,'_blank')}
